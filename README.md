@@ -2,7 +2,7 @@
 
 ### Несколько скриншотов для понимания
 
-![Image alt](https://github.com/{username}/{repository}/raw/{branch}/images/1.png)
+![Image alt](https://github.com/HubUzername/fitness/raw/master/images/1.png)
 
 ### Порядок создания проекта
 
