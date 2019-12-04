@@ -1,8 +1,19 @@
 # Fitness Placet Goup
 
-### Несколько скриншотов для понимания
+### Несколько скриншотов для понимания, в самом низу порядок работы
 
 ![Image alt](https://github.com/HubUzername/fitness/raw/master/images/1.jpg)
+![Image alt](https://github.com/HubUzername/fitness/raw/master/images/2.jpg)
+![Image alt](https://github.com/HubUzername/fitness/raw/master/images/3.jpg)
+![Image alt](https://github.com/HubUzername/fitness/raw/master/images/4.jpg)
+![Image alt](https://github.com/HubUzername/fitness/raw/master/images/5.jpg)
+![Image alt](https://github.com/HubUzername/fitness/raw/master/images/6.jpg)
+![Image alt](https://github.com/HubUzername/fitness/raw/master/images/7.jpg)
+![Image alt](https://github.com/HubUzername/fitness/raw/master/images/8.jpg)
+![Image alt](https://github.com/HubUzername/fitness/raw/master/images/9.jpg)
+![Image alt](https://github.com/HubUzername/fitness/raw/master/images/10.jpg)
+![Image alt](https://github.com/HubUzername/fitness/raw/master/images/11.jpg)
+![Image alt](https://github.com/HubUzername/fitness/raw/master/images/12.jpg)
 
 ### Порядок создания проекта
 
