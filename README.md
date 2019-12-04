@@ -1,5 +1,9 @@
 # Fitness Placet Goup
 
+### Несколько скриншотов для понимания
+
+![Image alt](https://github.com/{username}/{repository}/raw/{branch}/{path}/image.png)
+
 ### Порядок создания проекта
 
 - Начал разработку с сущности пользователя со всеми необходимыми свойствами
