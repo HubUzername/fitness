@@ -109,7 +109,7 @@
         /**
          * @Route("/profile", name="user.profile")
          */
-        public function userProfile(Request $request) {
+        public function userProfile() {
             $this->getUser()->getSex() == User::SEX_MALE ? $sex = "Мужской" : $sex = "Женский";
             return $this->render('user/profile.html.twig', ["sex" => $sex]);
         }

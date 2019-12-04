@@ -15,7 +15,6 @@
         }
 
         public function execute(AMQPMessage $msg) {
-            echo "\nПришло сообщение ".$msg->body."\n";
             $body = json_decode($msg->body, true);
             if(isset($body['phone'])) {
                 $client = HttpClient::create();
@@ -28,7 +27,7 @@
                 else {
                     echo "Кладем в очередь send.delayed\n";
                     $this->smsDelayProducer->publish($msg->body, '', [], ["x-delay" => 7000]);
-                    return ConsumerInterface::MSG_ACK_SENT;
+                    return ConsumerInterface::MSG_ACK;
                 }
             }
             return ConsumerInterface::MSG_ACK_SENT;
