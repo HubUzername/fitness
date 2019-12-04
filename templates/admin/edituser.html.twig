@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdminController!{% endblock %}
+
+{% block body %}
+    <h1 class="h4 w-100 mb-3 font-weight-normal">Управление клиентом
+        {% if user.status == 0 %} <span class="float-right text-muted">Не активен</span>
+        {% elseif user.status == 1 %} <span class="float-right"><a class="text-success" href="{{ path('admin.users.ban', { 'userId': user.id }) }}">Заблокировать</a></span>
+        {% elseif user.status == 2 %} <span class="float-right"><a class="text-danger" href="{{ path('admin.users.ban', { 'userId': user.id }) }}">Разблокировать</a></span>
+        {% endif %}
+    </h1>
+    {% if error %}
+        <div class="alert alert-danger">{{ error }}</div>
+    {% endif %}
+    {{ form_start(form) }}
+    <div class="container p-0">
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    {{ form_row(form.email, {'label': 'E-mail адрес', 'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    {{ form_row(form.namelastname, {'label': 'Имя Фамилия', 'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    {{ form_row(form.birthday, {'label': 'Дата рождения', 'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    {{ form_row(form.phone, {'label': 'Номер телефона', 'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label class="w-100">Пол</label>
+                    <div class="custom-control-inline">
+                        {{ form_row(form.sex[0], {'label': 'Мужской'}) }}
+                    </div>
+                    <div class="custom-control-inline">
+                        {{ form_row(form.sex[1], {'label': 'Женский '}) }}
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label class="w-100">Фотография</label>
+                    {% if user.photo %}
+                        <img src="{{ asset('photos/') }}{{ user.photo }}" width="200px">
+                    {% endif %}
+                    <div class="input-group mb-3">
+                        <div class="custom-file">
+                            {{ form_row(form.updatedPhoto, {'label': ' ', 'attr': {'class': 'custom-file-input'}}) }}
+                            <label class="custom-file-label" for="inputGroupFile01">Выбрать файл для изменения фото</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col"></div>
+            <div class="col text-right">
+                {{ form_row(form.add, {'label': 'Сохранить настройки', 'attr': {'class': 'btn btn-primary w-100'}}) }}
+            </div>
+        </div>
+    </div>
+    {{ form_end(form) }}
+{% endblock %}

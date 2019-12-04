@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserController!{% endblock %}
+
+{% block body %}
+    <h1 class="h4 mb-3 font-weight-normal">Список занятий в фитнес клубе<a class="float-right" href="{{ path('admin.lessons.add') }}">Добавить занятие</a></h1>
+    {% if lessons %}
+        <table class="table w-100">
+            <thead>
+                <tr>
+                    <th scope="col">Занятие</th>
+                    <th scope="col">Треннер</th>
+                    <th scope="col">Описание</th>
+                    <th scope="col" align="center">Клиентов</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for lesson in lessons %}
+                <tr>
+                    <th scope="row"><b>{{ lesson.name }}</b></th>
+                    <td>{{ lesson.trainerName }}</td>
+                    <td>{{ lesson.description }}</td>
+                    <td align="center">{{ lesson.getTempSubscribers() }}</td>
+                    <td align="right"><a href="{{ path('admin.lessons.notify', { 'lessonId': lesson.id }) }}"><button class="btn btn-sm btn-primary" type="button">Оповещение</button></a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+{% endblock %}

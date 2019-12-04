@@ -1,0 +1,12 @@
+<ul class="nav flex-column">
+    <li class="nav-item">
+        <a class="nav-link" href="{{ path('user.profile') }}">Мой профиль</a>
+        <a class="nav-link" href="{{ path('user.subscriptions') }}">Мои занятия</a>
+        {% if is_granted('ROLE_ADMIN') %}<hr/>
+        <a class="nav-link" href="{{ path('admin.newuser') }}">Добавление нового клиента</a>
+        <a class="nav-link" href="{{ path('admin.users') }}">Список клиентов</a>
+        <a class="nav-link" href="{{ path('admin.lessons') }}">Список занятий</a>
+        <a class="nav-link" href="{{ path('admin.lessons.add') }}">Добавить новое занятие</a>
+        {% endif %}
+    </li>
+</ul>

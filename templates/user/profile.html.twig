@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserController!{% endblock %}
+
+{% block body %}
+    <h1 class="h4 mb-3 font-weight-normal">Профиль</h1>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th scope="row">Фотография</th>
+                <td>
+                    {% if app.user.photo %}
+                        <img src="{{ asset('photos/') }}{{ app.user.photo }}" width="200px">
+                    {% else %}
+
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">Имя Фамилия</th>
+                <td>{{ app.user.nameLastName }} ({{ sex }})</td>
+            </tr>
+            <tr>
+                <th scope="row">E-mail адрес</th>
+                <td>{{ app.user.email }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Номер телефона</th>
+                <td>{{ app.user.phone }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Дата рождения</th>
+                <td>{{ app.user.birthday|date("d.m.Y") }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Пароль</th>
+                <td>
+                    <a href="{{ path('user.changepassword') }}">Изменить пароль</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

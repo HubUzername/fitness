@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserController!{% endblock %}
+
+{% block body %}
+    <h1 class="h4 mb-3 font-weight-normal">Мои занятия</h1>
+        {% if subscriptions is null %}
+            <div class="alert alert-danger">На данный момент вы не подписаны ни на одно из занятий</div>
+        {% endif %}
+        {% if subscriptions %}
+        <table class="table w-100">
+            <thead>
+            <tr>
+                <th scope="col">Занятие</th>
+                <th scope="col">Треннер</th>
+                <th scope="col">Описание</th>
+                <th scope="col">Оповещения</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for sub in subscriptions %}
+                <tr>
+                    <th scope="row"><b>{{ sub.lesson.name }}</b></th>
+                    <td>{{ sub.lesson.trainerName }}</td>
+                    <td>{{ sub.lesson.description }}</td>
+                    <td>
+                        <a class="{% if sub.notifierBy == 0 %}text-danger{% else %}text-secondary{% endif %}" href="{{ path('user.lesson.status', { 'subId': sub.id, 'status': 0 }) }}">Выкл</a> |
+                        <a class="{% if sub.notifierBy == 1 %}text-success{% else %}text-secondary{% endif %}" href="{{ path('user.lesson.status', { 'subId': sub.id, 'status': 1 }) }}">E-mail</a> |
+                        <a class="{% if sub.notifierBy == 2 %}text-success{% else %}text-secondary{% endif %}" href="{{ path('user.lesson.status', { 'subId': sub.id, 'status': 2 }) }}">SMS</a>
+                    </td>
+                    <td width="10px"><a class="text-danger" href="{{ path('user.subscribe', { 'lessonId': sub.lesson.id }) }}">X</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+    {% if lessons %}
+        <table class="table w-100">
+            <thead>
+                <tr>
+                    <th scope="col">Занятие</th>
+                    <th scope="col">Треннер</th>
+                    <th scope="col">Описание</th>
+                    <th scope="col">Подписка</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for lesson in lessons %}
+                <tr>
+                    <th scope="row"><b>{{ lesson.name }}</b></th>
+                    <td>{{ lesson.trainerName }}</td>
+                    <td>{{ lesson.description }}</td>
+                    <td><a href="{{ path('user.subscribe', { 'lessonId': lesson.id }) }}">Подписаться</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+{% endblock %}
