@@ -1,4 +1,4 @@
-# Fitness Placet Goup
+# Fitness Placet Group
 
 ### Несколько скриншотов для понимания, в самом низу порядок работы
 
