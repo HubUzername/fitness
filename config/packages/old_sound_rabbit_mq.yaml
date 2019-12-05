@@ -1,7 +1,7 @@
 old_sound_rabbit_mq:
     connections:
         default:
-            url: 'amqp://admin:admin@51.68.154.82:5672?lazy=1&connection_timeout=6'
+            url: 'amqp://admin:admin@localhost:5672?lazy=1&connection_timeout=6'
     producers:
         task:
             connection: default
